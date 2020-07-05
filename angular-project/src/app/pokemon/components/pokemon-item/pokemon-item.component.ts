@@ -19,7 +19,7 @@ export class PokemonItemComponent implements OnInit {
   setClasses() {
     let classes = {
       pokemon: true,
-      'bg-danger': this.pokemon.damage > 50
+      'border border-danger list-group-item-danger': this.pokemon.damage > 50
     }
     return classes;
   }
