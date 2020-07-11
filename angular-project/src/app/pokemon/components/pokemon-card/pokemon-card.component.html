@@ -1,0 +1,17 @@
+<div class="card text-white bg-secondary mt-3 p-5 d-flex flex-column align-items-center" [ngClass]="setClasses()">
+    <img src="{{pokemon.img}}"  alt={{pokemon.name}} class="img">
+    <p class="h2">{{pokemon.name}}</p>
+    <p class="h3 mb-4">Damage: {{pokemon.damage}}</p>
+    <button  *ngIf="!this.pokemon.catched" 
+             class="btn btn-warning" 
+             (click)="catchPokemon(pokemon)">
+             <h4>Catch</h4>
+    </button>
+    <button  *ngIf="this.pokemon.catched" 
+             class="btn btn-success" 
+             (click)="catchPokemon(pokemon)">
+             <h4>Let go</h4>
+    </button>
+</div>
+
+

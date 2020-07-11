@@ -11,15 +11,23 @@
             </label>
             <p class="text-info display-4" *ngIf="switched">List</p>
             <p class="text-info display-4" *ngIf="!switched">Cards</p>
-        </div> 
+        </div>
+        <app-pokemon-search></app-pokemon-search>    
     </nav>
-    <div class="container" [ngClass]="setClasses()">
-        <app-pokemon-item *ngFor="let pokemon of pokemons" 
-                          [pokemon]="pokemon" 
-                          [switched]="switched"
-        >
-        </app-pokemon-item>
+    <div>
+        <div class="container" >
+            <div *ngIf="!switched"  [ngClass]="setClasses()">
+            <app-pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon" (onChanged)="onChanged($event)"
+            >
+            </app-pokemon-card>
+            </div>
+            <ul *ngIf="switched" >
+                <app-pokemon-row *ngFor="let pokemon of pokemons" [pokemon]="pokemon" class="list-group">
+                </app-pokemon-row>
+            </ul>
+        </div>
     </div>
+    
 </div>
 
 

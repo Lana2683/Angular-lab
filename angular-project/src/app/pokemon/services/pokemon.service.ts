@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Pokemon } from '../models/Pokemon';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
+  private pockemons: Pokemon[] = [];
 
   constructor() { }
 
-  getPokemones() {
-    return [
+  getPokemones(): Pokemon[] {
+    return this.pockemons = [
       {
         id: 1,
         name: 'Bulbasaur',
@@ -94,5 +96,19 @@ export class PokemonService {
         img: '../../../../assets/img/39.png'
       }
     ]
+  }
+
+  getPokemonById(id: number): Pokemon {
+    const index = this.pockemons.findIndex( element => element.id === id)
+    return index > -1 ? this.pockemons[index] : null;
+  };
+
+  filterPokemons(value: string): Pokemon[] {
+    return this.pockemons.map((pokemon: Pokemon) => {
+      if (pokemon.name === value) {
+        return pokemon;
+       }
+       return null
+    })
   }
 }

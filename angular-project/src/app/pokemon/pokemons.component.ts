@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Pokemon } from './models/Pokemon';
 import { PokemonService } from './services/pokemon.service'
 
@@ -9,8 +9,10 @@ import { PokemonService } from './services/pokemon.service'
 })
 export class PokemonsComponent implements OnInit {
   pokemons: Pokemon[];
+  @Input() pokemon: Pokemon;
   switched: boolean = false;
   theCheckbox: boolean = false;
+  str: string;
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -27,5 +29,11 @@ export class PokemonsComponent implements OnInit {
       'd-flex flex-wrap justify-content-around bg-primary': !this.switched
     }
     return classes;
+  }
+
+  onChanged(pokemon: Pokemon){
+    pokemon.catched ? pokemon.catched = false : pokemon.catched = true;
+    pokemon.catched ? this.str = "catched" : this.str = "released";
+    console.log(pokemon.name + ' was ' + this.str);
   }
 }
