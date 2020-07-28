@@ -4,4 +4,5 @@ export class Pokemon {
     damage: number;
     catched: boolean;
     img: string;
+    date: string;
 }

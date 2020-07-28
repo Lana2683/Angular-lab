@@ -1,5 +1,5 @@
 <div class="card text-white bg-secondary mt-3 p-5 d-flex flex-column align-items-center" [ngClass]="setClasses()">
-    <img src="{{pokemon.img}}"  alt={{pokemon.name}} class="img">
+    <img src="{{pokemon.img}}"  alt={{pokemon.name}} class="img" routerLink="/pokemon/{{pokemon.id}}">
     <p class="h2">{{pokemon.name}}</p>
     <p class="h3 mb-4">Damage: {{pokemon.damage}}</p>
     <button  *ngIf="!this.pokemon.catched" 

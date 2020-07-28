@@ -1,0 +1,13 @@
+.pokemon-page {
+    height: 1000px;
+    background-color: #333333;
+}
+
+.page-img {
+    width: 350px;
+    height: 350px;
+}
+
+.edit-btn {
+    max-width: 100px;
+}

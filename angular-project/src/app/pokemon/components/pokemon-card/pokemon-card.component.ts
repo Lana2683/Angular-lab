@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Pokemon } from '../../models/Pokemon';
+import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -8,9 +9,8 @@ import { Pokemon } from '../../models/Pokemon';
 })
 export class PokemonCardComponent implements OnInit {
   @Input() pokemon: Pokemon;
-  @Output() onChanged = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +24,7 @@ export class PokemonCardComponent implements OnInit {
   }
 
   catchPokemon(pokemon) {
-    this.onChanged.emit(pokemon);
+    this.pokemonService.catchPokemon(pokemon);
   }
 
 }

@@ -12,7 +12,7 @@ import { PokemonModule } from './pokemon/pokemon.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PokemonModule
+    PokemonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
