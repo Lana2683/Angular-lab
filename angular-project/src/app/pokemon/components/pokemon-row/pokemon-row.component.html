@@ -1,0 +1,12 @@
+<li class="list-group-item 
+            list-group-item-secondary 
+            list-group-item-action 
+            d-flex 
+            justify-content-between 
+            align-items-center"
+    [ngClass]="setClasses()"
+>
+    <img src="{{pokemon.img}}"  alt={{pokemon.name}} class="img-sm">
+    <p class="display-4">{{pokemon.name}}</p>
+    <span class="h3">Damage: {{pokemon.damage}}</span>
+</li>

@@ -1,0 +1,33 @@
+<div class="container pokemon-page pt-5">
+<div class="card text-white bg-secondary p-4 border-warning">
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> -->
+    <button class="btn btn-lg btn-info justify-self-start edit-btn">Edit</button>
+  <!-- </nav> -->
+  <div class="d-flex px-2 py-4 justify-content-around">
+    <img src="{{pokemon.img}}"  alt={{pokemon.name}} class="page-img">
+    <div class="d-flex flex-column align-items-center justify-content-around">
+        <p class="display-3 text-light">{{pokemon.name}}</p>
+        <h3>Creation date: {{pokemon.date}}</h3>
+        <p>Lorem ipsum dolor sit amet consectetur 
+            adipisicing elit. Dolore, aspernatur amet beatae,
+             perferendis deserunt, veritatis voluptatem modi libero 
+             ipsum in rerum quaerat reiciendis quidem nihil voluptate. 
+            Repellat qui sit quia consequatur! Reprehenderit suscipit ad 
+            dignissimos modi distinctio molestiae sequi repudiandae.
+        </p>
+        <button *ngIf="!this.pokemon.catched" 
+             class="btn btn-warning" 
+             (click)="catchPokemon(pokemon)">
+             <h4>Catch</h4>
+        </button>
+        <button *ngIf="this.pokemon.catched" 
+                class="btn btn-success" 
+                (click)="catchPokemon(pokemon)">
+                <h4>Let go</h4>
+        </button>
+    </div>
+  </div>
+
+</div>
+    
+</div>
