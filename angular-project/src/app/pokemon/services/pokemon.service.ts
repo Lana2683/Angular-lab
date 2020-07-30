@@ -105,6 +105,7 @@ export class PokemonService {
   ];
   private pokemon: Pokemon;
   str: string;
+  public success: boolean = false;
 
   constructor() { }
 
@@ -130,5 +131,25 @@ export class PokemonService {
     pokemon.catched ? pokemon.catched = false : pokemon.catched = true;
     pokemon.catched ? this.str = "catched" : this.str = "released";
     console.log(pokemon.name + ' was ' + this.str);
+  }
+
+  editPokemon(id, item): Pokemon {
+    this.pokemons.map((pokemon: Pokemon) => {
+      if(pokemon.id == id){
+        pokemon.name = item.name,
+        pokemon.damage = item.damage,
+        pokemon.date = item.date
+      }
+      return null;
+    });
+    return this.pokemon
+  };
+
+  changeSuccess() {
+    this.success = true;
+  }
+
+  cancelSuccess() {
+    this.success = false;
   }
 }

@@ -13,6 +13,7 @@ export class PokemonPageComponent implements OnInit {
   @Input() pokemon: Pokemon;
   id: number;
   @Output() onChanged = new EventEmitter<void>();
+  success: boolean;
 
   private subscription: Subscription;
   constructor(private activateRoute: ActivatedRoute, private pokemonService: PokemonService){
@@ -22,16 +23,17 @@ export class PokemonPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.success = this.pokemonService.success;
+    if(this.success) {
+      setTimeout(() => this.cancelSuccess(), 3000)
+    }
+  } 
+
+  cancelSuccess() {
+    this.success = false && this.pokemonService.cancelSuccess()
   }
 
   catchPokemon(pokemon) {
     this.pokemonService.catchPokemon(pokemon);
   }
-
-  randomDate(start, end) {
-    let date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-    return date;
-}
-
 }

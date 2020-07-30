@@ -1,7 +1,14 @@
 <div class="container pokemon-page pt-5">
 <div class="card text-white bg-secondary p-4 border-warning">
   <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> -->
-    <button class="btn btn-lg btn-info justify-self-start edit-btn">Edit</button>
+    <ngb-alert *ngIf="success" class="alert alert-dismissible alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h2> Changes were saved</h2>
+    </ngb-alert>
+    <button class="btn btn-lg btn-info justify-self-start edit-btn"
+            routerLink="/pokemon/edit/{{pokemon.id}}">
+            Edit
+    </button>
   <!-- </nav> -->
   <div class="d-flex px-2 py-4 justify-content-around">
     <img src="{{pokemon.img}}"  alt={{pokemon.name}} class="page-img">

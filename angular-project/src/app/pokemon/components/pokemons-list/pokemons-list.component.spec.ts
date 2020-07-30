@@ -19,7 +19,7 @@ describe('PokemonsListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should have 12 pokemons', async(() => {
+    expect(component.pokemons.length).toEqual(12);
+  }));
 });

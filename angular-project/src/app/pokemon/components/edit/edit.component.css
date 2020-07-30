@@ -1,0 +1,11 @@
+.pokemon-edit {
+    height: 100vh;
+}
+
+.column-name {
+    width: 300px;
+}
+
+.button {
+    min-width: 100px;
+}
