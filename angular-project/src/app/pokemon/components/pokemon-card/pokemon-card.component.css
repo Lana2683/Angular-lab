@@ -1,0 +1,13 @@
+.catch{
+    border: 2px solid rgba(197, 22, 22, 0.788);
+    border-radius: 30px;
+    background-color: white;
+    padding: 8px 24px;
+    cursor: pointer;
+}
+
+.img {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}

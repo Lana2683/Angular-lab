@@ -1,0 +1,31 @@
+<div>
+    <nav class="navbar bg-dark">
+        <div class="d-flex align-items-center">
+            <label class="switch mr-4">
+                <input type="checkbox" 
+                       class="" 
+                       [(ngModel)]="theCheckbox"  
+                       data-md-icheck (change)="toggleVisibility($event)"
+                />
+                <span class="slider round"></span>
+            </label>
+            <p class="text-info h1" *ngIf="switched">List</p>
+            <p class="text-info h1" *ngIf="!switched">Cards</p>
+        </div>
+        <app-pokemon-search (filterPokemon)="filterPokemon($event)"></app-pokemon-search>    
+    </nav>
+    <div>
+        <div class="container" >
+            <div *ngIf="!switched"  [ngClass]="setClasses()">
+            <app-pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon" (onChanged)="onChanged($event)"
+            >
+            </app-pokemon-card>
+            </div>
+            <ul *ngIf="switched" >
+                <app-pokemon-row *ngFor="let pokemon of pokemons" [pokemon]="pokemon" class="list-group">
+                </app-pokemon-row>
+            </ul>
+        </div>
+    </div>
+    
+</div>
