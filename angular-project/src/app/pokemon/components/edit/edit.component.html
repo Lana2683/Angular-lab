@@ -1,0 +1,71 @@
+<div class="container pokemon-edit pt-5">
+    <div class="card text-white bg-secondary p-4 border-warning">
+      <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> -->
+        <!-- <button class="btn btn-lg btn-info justify-self-start edit-btn"
+                routerLink="/pokemon/edit/{{pokemon.id}}">
+                Edit
+        </button> -->
+      <!-- </nav> -->
+      <div class="d-flex px-2 py-4 justify-content-around">
+        <img src="{{pokemon.img}}"  alt={{pokemon.name}} class="page-img">
+        <form [formGroup]="pokemonForm"
+              (ngSubmit)="onSubmit()"
+              id="pokemon-form" 
+              novalidate 
+              class="d-flex flex-column align-items-center justify-content-around"     
+        >
+            <h1 class="display-4 text-center text-info py-3">Edit pokemon info</h1>
+            <div class="h-50 d-flex flex-column justify-content-around card text-white bg-secondary border-light p-3">
+                <span class="d-flex">
+                    <h3 class="column-name">Name:</h3>
+                    <input type="text"
+                           placeholder="{{pokemon.name}}"
+                           class="ml-3 form-control form-control-lg"
+                           formControlName="name"
+                           name="name"
+                    >
+                </span>
+                <span class="d-flex">
+                    <h3 class="column-name">Creation date:</h3>
+                    <input
+                      type="text"
+                      placeholder="{{pokemon.date}} ( DD-MM-YYYY )"
+                      class="ml-3 form-control form-control-lg"
+                      formControlName="date"
+                      name="date"
+                    >
+                </span>
+                <span class="d-flex">
+                    <h3 class="column-name">Damage:</h3>
+                    <input
+                      type="number"
+                      placeholder="{{pokemon.damage}}"
+                      class="ml-3 form-control form-control-lg"
+                      formControlName="damage"
+                      name="damage"
+                    >
+                </span>
+            </div>
+            
+            <div class="d-flex justify-content-around w-100">
+                <button
+                  type="submit"
+                  class="btn btn-success button" 
+                  [disabled]="pokemonForm.invalid"
+                >
+                <h4>Save</h4>
+                </button>
+                <button 
+                  type="button"
+                  data-toggle="modal"
+                  class="btn btn-warning button"  
+                  routerLink="/pokemon/{{pokemon.id}}"
+                >
+                <h4>Cancel</h4>
+                </button>
+            </div>
+        </form>
+      </div>
+    </div>
+
+</div>
